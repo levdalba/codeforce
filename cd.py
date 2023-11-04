@@ -1,7 +1,9 @@
-s = str(input())
-if s == "Yoda":
-    print("Pertenece a Star Wars.")
-elif s == "Spock":
-    print("Pertenece a Star Trek.")
-elif s == "Frodo":
-    print("No pertenece ni a Star Wars ni a Star Trek.")
+a,b = map(int,input().split())
+
+
+if a == 1 or b == 1:
+    print(a + b)
+
+else:
+    print(a * b)
+
