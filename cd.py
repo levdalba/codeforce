@@ -1,9 +1,5 @@
-a,b = map(int,input().split())
-
-
-if a == 1 or b == 1:
-    print(a + b)
-
-else:
-    print(a * b)
-
+n, k = map(int, input().split())
+mylist= sorted(list(map(int, input().split())))
+mylist = mylist[-(k):]
+res = sum(mylist)
+print(res)
