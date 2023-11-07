@@ -1,5 +1,10 @@
-n, k = map(int, input().split())
-mylist= sorted(list(map(int, input().split())))
-mylist = mylist[-(k):]
-res = sum(mylist)
-print(res)
+n = int(input())
+ans = []
+while n > 1:
+    x = n // 2
+    ans.append(x)
+    n -= x
+
+ans.reverse()
+print(len(ans))
+print(*ans)
