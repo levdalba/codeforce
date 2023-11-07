@@ -1,17 +1,10 @@
-n = int(input().strip())
-count = 0
+s = input().strip()
+open = close = count = 0
 
-for _ in range(n):
-    s = input().strip()
-    stack = []
-
-    for char in s:
-        if stack and stack[-1] == char:
-            stack.pop()
-        else:
-            stack.append(char)
-
-    if len(stack) == 0:
-        count += 1
+for i in range(len(s) - 1, -1, -1):
+    if s[i : i + 2] == "))":
+        close += 1
+    elif s[i : i + 2] == "((":
+        count += close
 
 print(count)
