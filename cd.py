@@ -1,10 +1,14 @@
 n = int(input())
-nums = list(map(int, input().split()))
-
-moves = 0
-for i in range(1, n):
-    if nums[i] < nums[i - 1]:
-        moves += nums[i - 1] - nums[i]
-        nums[i] = nums[i - 1]
-
-print(moves)
+list = []
+if n == 1:
+    print(1)
+if n > 3:
+    for i in range(1, n + 1):
+        if i % 2 == 0:
+            list.append(i)
+    for j in range(1, n + 1):
+        if j % 2 != 0:
+            list.append(j)
+    print(" ".join(map(str, list)))
+else:
+    print("NO SOLUTION")
