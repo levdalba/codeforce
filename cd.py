@@ -1,13 +1,6 @@
-def number_spiral(y, x):
-    z = max(y, x)
-    d = z * (z - 1) + 1
-    if z % 2 == 0:
-        return d + y - x
-    else:
-        return d - y + x
-
-
-t = int(input())
-for _ in range(t):
-    y, x = map(int, input().split())
-    print(number_spiral(y, x))
+n = int(input())
+for k in range(1, n + 1):
+    total_positions = k * k
+    total_ways = total_positions * (total_positions - 1) // 2
+    attacking_ways = 4 * (k - 1) * (k - 2)
+    print(total_ways - attacking_ways)
