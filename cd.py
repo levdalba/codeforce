@@ -1,16 +1,21 @@
-n, k = map(int, input().split())
-a = list(map(int, input().split()))
+q = int(input())
+for _ in range(q):
+    n, k = map(int, input().split())
+    a = list(map(int, input().split()))
 
-max_length = 0
-current_length = 1
+    count = 0
+    for x in a:
+        if x % 2 == 1:
+            count += 1
 
-for i in range(1, n):
-    if a[i] != a[i - 1]:
-        current_length += 1
+    if count < k or (count - k) % 2 == 1:
+        print("NO")
     else:
-        max_length = max(max_length, current_length)
-        current_length = 1
-
-max_length = max(max_length, current_length)
-
-print(max_length)
+        print("YES")
+        j = 0
+        for i in range(k - 1):
+            while a[j] % 2 == 0:
+                j += 1
+            print(j + 1, end=" ")
+            j += 1
+        print(n)
