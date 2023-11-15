@@ -1,21 +1,17 @@
-q = int(input())
-for _ in range(q):
-    n, k = map(int, input().split())
-    a = list(map(int, input().split()))
+def min_blows(n, x, blows):
+    max_d = max_h = -1
+    for d, h in blows:
+        max_d = max(max_d, d)
+        max_h = max(max_h, d - h)
+    if max_d >= x:
+        return 1
+    if max_h <= 0:
+        return -1
+    return (x - max_d + max_h - 1) // max_h + 1
 
-    count = 0
-    for x in a:
-        if x % 2 == 1:
-            count += 1
 
-    if count < k or (count - k) % 2 == 1:
-        print("NO")
-    else:
-        print("YES")
-        j = 0
-        for i in range(k - 1):
-            while a[j] % 2 == 0:
-                j += 1
-            print(j + 1, end=" ")
-            j += 1
-        print(n)
+t = int(input())
+for i in range(t):
+    n, x = map(int, input().split())
+    blows = [tuple(map(int, input().split())) for j in range(n)]
+    print(min_blows(n, x, blows))
